@@ -1,0 +1,8 @@
+sphinx>=7.0
+sphinx-autobuild>=2021.0
+myst-nb>=1.0
+pydata-sphinx-theme>=0.15
+numpy>=1.24
+matplotlib>=3.7
+ipywidgets>=8.0
+jupyterlab>=4.0
