@@ -41,7 +41,7 @@ html_theme_options = {
     "show_nav_level": 2,
     "navigation_depth": 3,
     "show_toc_level": 2,
-    "logo": {
+    "logo": { 
         "text": "MatrixForge",
     },
 }
@@ -59,11 +59,3 @@ myst_enable_extensions = [
     "colon_fence", # Enable ::: fences
 ]
 
-# -- MathJax configuration ---------------------------------------------------
-
-mathjax3_config = {
-    'tex': {
-        'inlineMath': [['$', '$']],
-        'displayMath': [['$$', '$$']],
-    }
-}

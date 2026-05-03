@@ -4,6 +4,8 @@
 
 Matrices are everywhere in modern technology—from the graphics on your screen to the algorithms that process audio and video, from solving engineering problems to training neural networks. MatrixForge makes these concepts accessible and intuitive through clear explanations, visual examples, and hands-on Python code.
 
+This site was developed as reminder to me, when Im coding or playing with projects, how to work with matricies and how the can be applied to real world applications
+
 ## What You'll Learn
 
 This site guides you from the basics to real-world applications:
@@ -11,14 +13,14 @@ This site guides you from the basics to real-world applications:
 ::::{grid} 1 1 2 2
 :gutter: 3
 
-:::{grid-item-card} 🧮 Fundamentals
+:::{grid-item-card} Fundamentals
 :link: fundamentals/index
 :link-type: doc
 
-Start with the basics: what matrices are, how to add and multiply them, and why they're useful. Build a solid foundation with intuition-first explanations.
+Start with the basics: what matrices are, how to add and multiply them, and why they're useful. Build a solid foundation with intuition-first explanations. Where possible show where and how these basics are applierd in engineering.
 :::
 
-:::{grid-item-card} 🚀 Applications
+:::{grid-item-card} Applications
 :link: applications/index
 :link-type: doc
 
