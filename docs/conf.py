@@ -6,6 +6,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../src'))
+sys.path.insert(0, os.path.abspath('_ext'))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -20,6 +21,8 @@ release = '0.1.0'
 
 extensions = [
     'myst_nb',
+    'matrixforge_directives',
+    'sphinx_design',
     'sphinx.ext.mathjax',
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
@@ -34,6 +37,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
+html_css_files = ['matrixforge-runner.css']
+html_js_files = ['matrixforge-runner.js']
 html_title = "MatrixForge"
 
 html_theme_options = {
@@ -58,4 +63,3 @@ myst_enable_extensions = [
     "amsmath",     # Enable advanced math environments
     "colon_fence", # Enable ::: fences
 ]
-

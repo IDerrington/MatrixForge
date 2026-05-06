@@ -43,14 +43,7 @@ Instead of writing loops and tracking individual numbers, matrices let you expre
 
 ## Learning Path
 
-```{mermaid}
-graph LR
-    A[What is a Matrix?] --> B[Vectors & Shapes]
-    B --> C[Addition & Scaling]
-    C --> D[Matrix Multiplication]
-    D --> E[Transformations]
-    E --> F[Applications]
-    F --> G[DSP & Beamforming]
+```{matrixforge-path}
 ```
 
 Start with {doc}`fundamentals/index` if you're new to matrices, or jump directly to {doc}`applications/index` if you want to see matrices in action.
@@ -59,7 +52,10 @@ Start with {doc}`fundamentals/index` if you're new to matrices, or jump directly
 
 Throughout this site, you'll find executable Python code and Jupyter notebooks. Try them out, modify the parameters, and see what happens. The best way to learn is by doing.
 
-```{code-block} python
+```{matrixforge-runner}
+:title: Create and print a 2x2 matrix
+:packages: numpy
+
 import numpy as np
 
 # Create a simple 2x2 matrix
