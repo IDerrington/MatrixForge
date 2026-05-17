@@ -1,0 +1,215 @@
+.matrixforge-path {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 1.25rem 0 1rem;
+}
+
+.matrixforge-path__step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 4.2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--pst-color-border, #d0d7de);
+  border-radius: 6px;
+  color: var(--pst-color-text-base, #24292f);
+  background: var(--pst-color-surface, #ffffff);
+  text-decoration: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.matrixforge-path__step:hover {
+  border-color: var(--pst-color-primary, #3366cc);
+  box-shadow: 0 0.5rem 1.4rem rgba(15, 23, 42, 0.08);
+  color: var(--pst-color-text-base, #24292f);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.matrixforge-path__number {
+  display: inline-grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  color: #ffffff;
+  background: var(--pst-color-primary, #3366cc);
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.matrixforge-path__title {
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.matrixforge-runner {
+  margin: 1.25rem 0;
+  border: 1px solid var(--pst-color-border, #d0d7de);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--pst-color-surface, #ffffff);
+  box-shadow: 0 0.75rem 2rem rgba(15, 23, 42, 0.08);
+}
+
+.matrixforge-runner__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--pst-color-border, #d0d7de);
+  background: color-mix(in srgb, var(--pst-color-primary, #3366cc) 7%, var(--pst-color-surface, #ffffff));
+}
+
+.matrixforge-runner__eyebrow {
+  margin: 0 0 0.15rem;
+  color: var(--pst-color-muted, #667085);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.matrixforge-runner__title {
+  margin: 0;
+  color: var(--pst-color-text-base, #24292f);
+  font-weight: 650;
+}
+
+.matrixforge-runner__run {
+  border: 1px solid var(--pst-color-primary, #3366cc);
+  border-radius: 4px;
+  padding: 0.42rem 0.95rem;
+  color: #ffffff;
+  background: var(--pst-color-primary, #3366cc);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.matrixforge-runner__run:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.matrixforge-runner__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(14rem, 0.8fr);
+  min-height: 16rem;
+}
+
+.matrixforge-runner__status {
+  color: var(--pst-color-muted, #667085);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.matrixforge-runner__code {
+  display: block;
+  width: 100%;
+  min-height: 16rem;
+  box-sizing: border-box;
+  padding: 1rem 1.1rem;
+  border: 0;
+  border-right: 1px solid var(--pst-color-border, #d0d7de);
+  resize: vertical;
+  color: var(--pst-color-text-base, #24292f);
+  background: color-mix(in srgb, var(--pst-color-surface, #ffffff) 96%, #000000);
+  font: 0.92rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  tab-size: 4;
+}
+
+.matrixforge-runner__code:focus {
+  outline: 2px solid var(--pst-color-primary, #3366cc);
+  outline-offset: -2px;
+}
+
+.matrixforge-runner__result {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.matrixforge-runner__result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--pst-color-border, #d0d7de);
+  background: var(--pst-color-on-surface, #f6f8fa);
+  color: var(--pst-color-text-base, #24292f);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.matrixforge-runner__output {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  color: var(--pst-color-text-base, #24292f);
+  background: var(--pst-color-surface, #ffffff);
+  white-space: pre-wrap;
+  font: 0.9rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.matrixforge-runner__artifacts {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0 1rem 1rem;
+}
+
+.matrixforge-runner__artifacts:empty {
+  display: none;
+}
+
+.matrixforge-runner__image,
+.matrixforge-runner__html,
+.matrixforge-runner__svg {
+  max-width: 100%;
+  border: 1px solid var(--pst-color-border, #d0d7de);
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.matrixforge-runner__image {
+  height: auto;
+}
+
+.matrixforge-runner__html {
+  width: 100%;
+  min-height: 18rem;
+}
+
+.matrixforge-runner__svg {
+  padding: 0.75rem;
+  overflow-x: auto;
+}
+
+@media (max-width: 900px) {
+  .matrixforge-path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .matrixforge-runner__body {
+    grid-template-columns: 1fr;
+  }
+
+  .matrixforge-runner__code {
+    border-right: 0;
+    border-bottom: 1px solid var(--pst-color-border, #d0d7de);
+  }
+}
+
+@media (max-width: 600px) {
+  .matrixforge-path {
+    grid-template-columns: 1fr;
+  }
+
+  .matrixforge-runner__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
