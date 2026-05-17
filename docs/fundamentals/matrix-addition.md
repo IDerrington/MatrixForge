@@ -40,7 +40,10 @@ The element in row $i$, column $j$ of $C$ equals the sum of the corresponding el
 
 ## In Python
 
-```python
+```{matrixforge-runner}
+:title: Add two matrices element by element
+:packages: numpy
+
 import numpy as np
 
 A = np.array([[1, 2],
@@ -59,7 +62,10 @@ print(C)
 
 **The matrices must have the same shape.** You can't add a $2 \times 3$ matrix to a $3 \times 2$ matrix.
 
-```python
+```{matrixforge-runner}
+:title: See why shape compatibility matters
+:packages: numpy
+
 import numpy as np
 
 A = np.array([[1, 2, 3],
@@ -68,8 +74,14 @@ A = np.array([[1, 2, 3],
 B = np.array([[7, 8],
               [9, 10]])  # 2x2
 
-# This will raise an error:
-# C = A + B
+print("A shape:", A.shape)
+print("B shape:", B.shape)
+
+try:
+    C = A + B
+except ValueError as error:
+    print("Addition failed:")
+    print(error)
 ```
 
 ## Scalar Multiplication (Scaling)
@@ -90,7 +102,10 @@ $$
 
 In Python:
 
-```python
+```{matrixforge-runner}
+:title: Scale every element in a matrix
+:packages: numpy
+
 import numpy as np
 
 A = np.array([[1, 2],
@@ -106,7 +121,10 @@ print(B)
 
 Imagine you have sales data for two quarters:
 
-```python
+```{matrixforge-runner}
+:title: Combine quarterly sales data
+:packages: numpy
+
 import numpy as np
 
 # Sales in Q1 (rows: products, columns: regions)
@@ -155,7 +173,10 @@ $$
 \end{bmatrix}
 $$
 
-```python
+```{matrixforge-runner}
+:title: Subtract corresponding entries
+:packages: numpy
+
 import numpy as np
 
 A = np.array([[5, 6],
@@ -169,6 +190,19 @@ C = A - B
 print("A - B =")
 print(C)
 ```
+
+## Try It
+
+In the addition example, change one value in `A` and predict exactly which value in `A + B` will change.
+
+Then try changing the scalar in the scaling example from `3` to `-2`. What happens to every entry?
+
+## Key Takeaways
+
+- Matrix addition works element by element.
+- Matrix subtraction also works element by element.
+- Addition and subtraction require matching shapes.
+- Scalar multiplication scales every entry in the matrix.
 
 ## Next Steps
 

@@ -17,7 +17,10 @@ This is a $2 \times 3$ matrix: 2 rows, 3 columns.
 
 ## Shape in Python
 
-```python
+```{matrixforge-runner}
+:title: Inspect matrix dimensions
+:packages: numpy
+
 import numpy as np
 
 A = np.array([[1, 2, 3],
@@ -83,7 +86,10 @@ The shape of a matrix determines:
 
 For matrix addition, shapes must match exactly:
 
-```python
+```{matrixforge-runner}
+:title: Check shape compatibility for addition
+:packages: numpy
+
 import numpy as np
 
 A = np.array([[1, 2],
@@ -94,9 +100,14 @@ B = np.array([[5, 6],
 
 C = A + B  # Works! Both are 2x2
 
-# This would fail:
-# D = np.array([[1, 2, 3]])  # 1x3
-# E = A + D  # Error: shapes don't match
+print("A shape:", A.shape)
+print("B shape:", B.shape)
+print("A + B:")
+print(C)
+
+D = np.array([[1, 2, 3]])  # 1x3
+print("D shape:", D.shape)
+print("A and D have different shapes, so A + D would fail.")
 ```
 
 For matrix multiplication, the number of columns in the first matrix must equal the number of rows in the second. We'll cover this in detail in {doc}`matrix-multiplication`.
@@ -105,7 +116,10 @@ For matrix multiplication, the number of columns in the first matrix must equal 
 
 Sometimes you need to change a matrix's shape:
 
-```python
+```{matrixforge-runner}
+:title: Reshape the same data
+:packages: numpy
+
 import numpy as np
 
 # Create a 1D array
@@ -123,6 +137,24 @@ print(B)
 ```
 
 The total number of elements must stay the same (here, 6 elements).
+
+## Try It
+
+In the reshape example, try reshaping the six values into:
+
+- `1 x 6`
+- `6 x 1`
+- `2 x 3`
+- `4 x 2`
+
+Which ones work? Which one fails, and why?
+
+## Key Takeaways
+
+- Matrix shape is written as rows by columns.
+- Addition requires matching shapes.
+- Matrix multiplication has a different compatibility rule.
+- Reshaping changes the layout, but the total number of elements must stay the same.
 
 ## Next Steps
 

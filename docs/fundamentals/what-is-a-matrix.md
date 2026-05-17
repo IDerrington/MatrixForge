@@ -26,13 +26,19 @@ Imagine you're tracking temperatures at three locations over two days:
 
 This is a matrix! The numbers are organized in a way that makes them easy to work with. In Python, we represent this as:
 
-```python
+```{matrixforge-runner}
+:title: Store temperature readings in a matrix
+:packages: numpy
+
 import numpy as np
 
 temperatures = np.array([[22, 25, 19],
                          [24, 23, 21]])
 
+print("Temperature matrix:")
 print(temperatures)
+print("Rows are days, columns are locations")
+print("Shape:", temperatures.shape)
 ```
 
 ## Real-World Examples
@@ -59,6 +65,19 @@ For our temperature matrix:
 ## Key Insight
 
 **Matrices let you work with many numbers at once.** Instead of writing separate operations for each temperature, location, or pixel, you can apply operations to the entire matrix. This makes code cleaner and computations faster.
+
+## Try It
+
+In the temperature example, change the matrix so it tracks **three days** instead of two. Run the code and check how the shape changes.
+
+Then try changing the number of locations. Which part of the shape changes: rows or columns?
+
+## Key Takeaways
+
+- A matrix is a rectangular grid of numbers.
+- Rows and columns give those numbers structure.
+- Matrix notation and NumPy arrays are two ways to describe the same idea.
+- Matrices are useful because they let you work with many related values at once.
 
 ## Next Steps
 

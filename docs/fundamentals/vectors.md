@@ -28,7 +28,10 @@ $$
 
 ## Vectors in Python
 
-```python
+```{matrixforge-runner}
+:title: Create vectors and inspect their shape
+:packages: numpy
+
 import numpy as np
 
 # Column vector (shape: 3x1)
@@ -56,7 +59,10 @@ Vectors have many interpretations:
 
 A 2D vector $\mathbf{v} = [3, 2]$ can be visualized as an arrow from the origin to the point $(3, 2)$:
 
-```python
+```{matrixforge-runner}
+:title: Draw a 2D vector
+:packages: numpy, matplotlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -81,7 +87,10 @@ plt.show()
 
 Just like numbers, we can add, subtract, and scale vectors:
 
-```python
+```{matrixforge-runner}
+:title: Add and scale vectors
+:packages: numpy
+
 import numpy as np
 
 u = np.array([1, 2])
@@ -105,6 +114,23 @@ Vectors are everywhere in matrix mathematics:
 - Many transformations act on vectors to produce new vectors
 
 Understanding vectors is essential for understanding what matrices do.
+
+## Try It
+
+In the vector plot, change `v = np.array([3, 2])` to a few different vectors:
+
+- `[-2, 3]`
+- `[4, -1]`
+- `[0, 3]`
+
+Before running each one, predict the direction of the arrow.
+
+## Key Takeaways
+
+- A vector is a one-dimensional list of values.
+- Vectors can represent points, directions, measurements, or features.
+- Adding vectors combines their components.
+- Scaling a vector changes its length without changing its basic direction, unless the scale is negative.
 
 ## Next Steps
 
