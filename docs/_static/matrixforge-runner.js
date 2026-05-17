@@ -4,8 +4,17 @@
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
+      if (window.loadPyodide) {
+        resolve();
+        return;
+      }
+
       const existing = document.querySelector(`script[src="${src}"]`);
       if (existing) {
+        if (existing.dataset.matrixforgeLoaded === "true") {
+          resolve();
+          return;
+        }
         existing.addEventListener("load", resolve, { once: true });
         existing.addEventListener("error", reject, { once: true });
         return;
@@ -14,7 +23,10 @@
       const script = document.createElement("script");
       script.src = src;
       script.async = true;
-      script.onload = resolve;
+      script.onload = () => {
+        script.dataset.matrixforgeLoaded = "true";
+        resolve();
+      };
       script.onerror = reject;
       document.head.appendChild(script);
     });
@@ -29,7 +41,12 @@
       });
     }
 
-    return pyodidePromise;
+    try {
+      return await pyodidePromise;
+    } catch (error) {
+      pyodidePromise = undefined;
+      throw error;
+    }
   }
 
   function dedent(value) {
@@ -41,12 +58,27 @@
     return lines.map((line) => line.slice(minIndent)).join("\n");
   }
 
+  function getArtifactsContainer(runner) {
+    const existing = runner.querySelector(".matrixforge-runner__artifacts");
+    if (existing) {
+      return existing;
+    }
+
+    const artifacts = document.createElement("div");
+    artifacts.className = "matrixforge-runner__artifacts";
+    const result = runner.querySelector(".matrixforge-runner__result");
+    if (result) {
+      result.appendChild(artifacts);
+    }
+    return artifacts;
+  }
+
   async function runExample(runner) {
     const button = runner.querySelector(".matrixforge-runner__run");
     const status = runner.querySelector(".matrixforge-runner__status");
     const code = runner.querySelector(".matrixforge-runner__code");
     const output = runner.querySelector(".matrixforge-runner__output");
-    const artifacts = runner.querySelector(".matrixforge-runner__artifacts");
+    const artifacts = getArtifactsContainer(runner);
     const packages = (runner.dataset.packages || "")
       .split(",")
       .map((item) => item.trim())
@@ -155,13 +187,28 @@ json.dumps(_matrixforge_artifacts)
   }
 
   function initRunner(runner) {
+    if (runner.dataset.matrixforgeInitialized === "true") {
+      return;
+    }
+
     const code = runner.querySelector(".matrixforge-runner__code");
     const button = runner.querySelector(".matrixforge-runner__run");
+    if (!code || !button) {
+      return;
+    }
+
     code.value = dedent(code.value);
     button.addEventListener("click", () => runExample(runner));
+    runner.dataset.matrixforgeInitialized = "true";
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function initRunners() {
     document.querySelectorAll(".matrixforge-runner").forEach(initRunner);
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRunners, { once: true });
+  } else {
+    initRunners();
+  }
 })();
