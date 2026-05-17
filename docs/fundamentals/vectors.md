@@ -55,6 +55,32 @@ Vectors have many interpretations:
 - **Data samples**: A list of measurements (temperatures, prices, sensor readings)
 - **Features**: In machine learning, a vector can represent features of an object
 
+### Engineering and Science Examples
+
+```{image} resources/vector.webp
+:alt: Vector quantity with magnitude and direction
+:align: right
+```
+
+Vectors can be used to represent quanties that posses both magnitude and direction. (It's really hard not think about Despicable Me! whilst writing this).
+
+
+Lets think of some real examples of quantities that could be reprented by vectors:
+
+* Velocity: Speed in a specific direction
+  * Wind speed & direction
+  * Car speed & direction
+* Acceleration: The rate and direction of a change in velocity
+  * Rocket
+* Forces
+  * Gravity
+  * Weight
+  * Torque
+* Electicity & Magnetism
+  * Electic / Magnetic Field
+
+The list goes on!!
+
 ## Geometric Intuition
 
 A 2D vector $\mathbf{v} = [3, 2]$ can be visualized as an arrow from the origin to the point $(3, 2)$:
@@ -81,7 +107,10 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt.title('Vector v = [3, 2]')
 plt.show()
-```
+```  
+
+This vector could represent the speed and direction of a moving vehicle or windspeed!! 
+ 
 
 ## Vector Operations
 
@@ -124,6 +153,7 @@ In the vector plot, change `v = np.array([3, 2])` to a few different vectors:
 - `[0, 3]`
 
 Before running each one, predict the direction of the arrow.
+
 
 ## Key Takeaways
 
